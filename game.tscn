@@ -36,31 +36,31 @@ offset_top = 2.0
 offset_right = 108.0
 offset_bottom = 288.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 2.0
 offset_right = 88.0
 offset_bottom = 130.0
 
-[node name="InventoryButton" type="TextureButton" parent="Control/Panel/VBoxContainer"]
+[node name="InventoryButton" type="TextureButton" parent="Control/Panel/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_l074r")
 script = ExtResource("7_eyvdu")
 
-[node name="InventoryButton2" type="TextureButton" parent="Control/Panel/VBoxContainer"]
+[node name="InventoryButton2" type="TextureButton" parent="Control/Panel/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_l074r")
 script = ExtResource("7_eyvdu")
 
-[node name="InventoryButton3" type="TextureButton" parent="Control/Panel/VBoxContainer"]
+[node name="InventoryButton3" type="TextureButton" parent="Control/Panel/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_l074r")
 script = ExtResource("7_eyvdu")
 
-[connection signal="button_down" from="Control/Panel/VBoxContainer/InventoryButton" to="Control/Panel/VBoxContainer/InventoryButton" method="_on_button_down"]
-[connection signal="button_up" from="Control/Panel/VBoxContainer/InventoryButton" to="Control/Panel/VBoxContainer/InventoryButton" method="_on_button_up"]
-[connection signal="button_down" from="Control/Panel/VBoxContainer/InventoryButton2" to="Control/Panel/VBoxContainer/InventoryButton2" method="_on_button_down"]
-[connection signal="button_up" from="Control/Panel/VBoxContainer/InventoryButton2" to="Control/Panel/VBoxContainer/InventoryButton2" method="_on_button_up"]
-[connection signal="button_down" from="Control/Panel/VBoxContainer/InventoryButton3" to="Control/Panel/VBoxContainer/InventoryButton3" method="_on_button_down"]
-[connection signal="button_up" from="Control/Panel/VBoxContainer/InventoryButton3" to="Control/Panel/VBoxContainer/InventoryButton3" method="_on_button_up"]
+[connection signal="button_down" from="Control/Panel/HBoxContainer/InventoryButton" to="Control/Panel/HBoxContainer/InventoryButton" method="_on_button_down"]
+[connection signal="button_up" from="Control/Panel/HBoxContainer/InventoryButton" to="Control/Panel/HBoxContainer/InventoryButton" method="_on_button_up"]
+[connection signal="button_down" from="Control/Panel/HBoxContainer/InventoryButton2" to="Control/Panel/HBoxContainer/InventoryButton2" method="_on_button_down"]
+[connection signal="button_up" from="Control/Panel/HBoxContainer/InventoryButton2" to="Control/Panel/HBoxContainer/InventoryButton2" method="_on_button_up"]
+[connection signal="button_down" from="Control/Panel/HBoxContainer/InventoryButton3" to="Control/Panel/HBoxContainer/InventoryButton3" method="_on_button_down"]
+[connection signal="button_up" from="Control/Panel/HBoxContainer/InventoryButton3" to="Control/Panel/HBoxContainer/InventoryButton3" method="_on_button_up"]
