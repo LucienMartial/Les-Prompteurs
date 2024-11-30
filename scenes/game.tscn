@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dswgpxf3f2okk"]
+[gd_scene load_steps=5 format=3 uid="uid://dswgpxf3f2okk"]
 
 [ext_resource type="PackedScene" uid="uid://bb1p0i0peifqd" path="res://scenes/grid.tscn" id="1_gau11"]
 [ext_resource type="PackedScene" uid="uid://4qnbe7gd7mi3" path="res://scenes/reflect_object.tscn" id="3_hpurl"]
 [ext_resource type="PackedScene" uid="uid://bt2c7m4tqe1i6" path="res://scenes/laser.tscn" id="3_pjsr2"]
 [ext_resource type="Script" path="res://scripts/laser_direction.gd" id="4_yr7pc"]
-[ext_resource type="Script" path="res://scripts/laser_direction_control.gd" id="5_jeugc"]
 
 [node name="Game" type="Node2D"]
 
@@ -20,20 +19,3 @@ position = Vector2(320, 122)
 [node name="NewLaser" parent="." instance=ExtResource("3_pjsr2")]
 position = Vector2(47, 84)
 script = ExtResource("4_yr7pc")
-
-[node name="Control" type="Node2D" parent="NewLaser"]
-script = ExtResource("5_jeugc")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="NewLaser/Control"]
-offset_left = -47.0
-offset_top = -84.0
-offset_right = -7.0
-offset_bottom = -44.0
-
-[node name="Button2" type="Button" parent="NewLaser/Control/HBoxContainer"]
-layout_mode = 2
-text = "<"
-
-[node name="Button" type="Button" parent="NewLaser/Control/HBoxContainer"]
-layout_mode = 2
-text = ">"

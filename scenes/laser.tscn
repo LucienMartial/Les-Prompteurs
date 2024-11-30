@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt2c7m4tqe1i6"]
+[gd_scene load_steps=5 format=3 uid="uid://bt2c7m4tqe1i6"]
 
 [ext_resource type="Script" path="res://scripts/laser.gd" id="1_2hlee"]
 [ext_resource type="Texture2D" uid="uid://c618cxedhrqsy" path="res://icon.svg" id="2_111go"]
+[ext_resource type="Script" path="res://scripts/sprite2d_laser.gd" id="3_8p0hu"]
+[ext_resource type="Script" path="res://scripts/laser_direction_control.gd" id="3_g5wim"]
 
 [node name="NewLaser" type="Node2D"]
 script = ExtResource("1_2hlee")
@@ -18,3 +20,21 @@ joint_mode = 2
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_111go")
+script = ExtResource("3_8p0hu")
+
+[node name="Control" type="Node2D" parent="."]
+script = ExtResource("3_g5wim")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+offset_left = -47.0
+offset_top = -84.0
+offset_right = -7.0
+offset_bottom = -44.0
+
+[node name="Button2" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="Button" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+text = ">"

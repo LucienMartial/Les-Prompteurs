@@ -16,11 +16,19 @@ extends Node2D
 const DEFAULT_DIRECTION_INDEX: int = 0
 
 func _ready():
+	position = Vector2(80, 250)
 	update_raycast_direction(DEFAULT_DIRECTION_INDEX)
 	var control = $Control
 	ray_cast_2d = $RayCast2D
 	line_2d = $Line2D
 	control.connect("direction_changed", Callable(self, "_on_direction_changed"))
+
+	var sprite = $Sprite2D
+	sprite.connect("position_dragged", Callable(self, "_on_position_dragged"))
+
+func _on_position_dragged(new_position):
+	global_position = new_position
+	laser_active = true
 
 func update_raycast_direction(direction_index: int):
 	# Met à jour la direction en fonction de l'index actuel
@@ -42,7 +50,7 @@ func _physics_process(_delta: float) -> void:
 	var start_point := global_position
 	var direction := ray_cast_2d.target_position
 	var current_points := [start_point]
-	
+
 	for i in range(max_bounces):
 		ray_cast_2d.global_position = current_points[-1]
 		var end_point = start_point + direction * max_distance
@@ -67,3 +75,5 @@ func _physics_process(_delta: float) -> void:
 	line_2d.clear_points()
 	for point in current_points:
 		line_2d.add_point(to_local(point))
+
+	laser_active = false
