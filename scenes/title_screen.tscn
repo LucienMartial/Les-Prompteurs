@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmsvt1iwslelb"]
+[gd_scene load_steps=7 format=3 uid="uid://w8h17bqjlkqk"]
 
 [ext_resource type="FontFile" uid="uid://drhcl3md1kjul" path="res://assets/fonts/LASER4.TTF" id="1_pok7o"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="2_fp4yg"]
@@ -41,7 +41,7 @@ offset_right = 55.5
 offset_bottom = 195.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "START"
+text = "JOUER"
 flat = true
 script = ExtResource("4_rhjeo")
 
@@ -58,10 +58,11 @@ offset_right = 39.0
 offset_bottom = 249.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "EXIT"
+text = "QUITTER"
 flat = true
 script = ExtResource("4_86akp")
 
 [node name="Node" type="Node" parent="."]
 
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

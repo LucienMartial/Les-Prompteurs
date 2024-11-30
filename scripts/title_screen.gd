@@ -1,8 +1,7 @@
 extends Control
 
 func _on_start_button_pressed() -> void:
-	print("yo")
-	get_tree().change_scene_to_file("res:")
+	get_tree().change_scene_to_file("res://scenes/dock_ui.tscn")
 	pass # Replace with function body.
 
 

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgplvvho1m7qc"]
+
+[ext_resource type="Theme" uid="uid://bljpas1lngsar" path="res://assets/themes/DockTheme.tres" id="1_1yte1"]
+[ext_resource type="Texture2D" uid="uid://beoyegpppgycm" path="res://assets/images/reload.png" id="1_mbbif"]
+[ext_resource type="Texture2D" uid="uid://c2jdofac0agjd" path="res://assets/images/pause.png" id="2_iihyu"]
+[ext_resource type="Script" path="res://scripts/pause_button.gd" id="4_5lgw2"]
+
+[node name="DockUI" type="Control"]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -385.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_1yte1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ResetButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_mbbif")
+flat = true
+
+[node name="PauseButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_iihyu")
+flat = true
+script = ExtResource("4_5lgw2")
+
+[node name="CurrentLevel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "CURRENT LEVEL"
+horizontal_alignment = 1
+
+[node name="Timer" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PauseButton" to="VBoxContainer/HBoxContainer/PauseButton" method="_on_pressed"]
