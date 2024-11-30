@@ -1,15 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://4qnbe7gd7mi3"]
 
-[ext_resource type="Texture2D" uid="uid://c618cxedhrqsy" path="res://icon.svg" id="1_qetsc"]
+[ext_resource type="Texture2D" uid="uid://djrw1iarhqs2n" path="res://assets/mirror.png" id="1_6fiji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ert"]
-size = Vector2(126, 124)
+size = Vector2(12, 12)
 
 [node name="ReflectObject" type="Area2D" groups=["reflect_object"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_qetsc")
+texture_filter = 1
+position = Vector2(8, 8)
+texture = ExtResource("1_6fiji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_u8ert")
