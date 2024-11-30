@@ -20,6 +20,11 @@ position = Vector2(320, 122)
 [node name="NewLaser" parent="." instance=ExtResource("3_pjsr2")]
 position = Vector2(47, 84)
 script = ExtResource("4_yr7pc")
+directions = null
+max_bounces = null
+max_distance = null
+laser_active = null
+default_direction = null
 
 [node name="Control" type="Node2D" parent="NewLaser"]
 script = ExtResource("5_jeugc")
@@ -37,3 +42,6 @@ text = "<"
 [node name="Button" type="Button" parent="NewLaser/Control/HBoxContainer"]
 layout_mode = 2
 text = ">"
+
+[node name="Polygon2D" type="Polygon2D" parent="NewLaser"]
+color = Color(0.0846899, 0.0846899, 0.0846899, 1)

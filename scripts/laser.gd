@@ -1,25 +1,52 @@
 extends Node2D
 
-@onready var ray_cast_2d: RayCast2D = $RayCast2D
-@onready var line_2d: Line2D = $Line2D
+@export var directions: Array = [
+	Vector2(0, 1),   # Haut
+	Vector2(1, 1),   # Haut Droite
+	Vector2(1, 0),   # Droite
+	Vector2(1, -1),   # Droite Bas
+	Vector2(0, -1),   # Bas
+	Vector2(-1, -1),   # Bas Gauche
+	Vector2(-1, 0),  # Gauche
+	Vector2(-1, 1),  # Gauche Haut
+]
+
+@export var laser_length: float = 922337203.0  # Longueur maximale du laser
+
+const DEFAULT_DIRECTION_INDEX: int = 0
+
+func _ready():
+	update_raycast_direction(DEFAULT_DIRECTION_INDEX)
+	var control = $Control
+	ray_cast_2d = $RayCast2D
+	line_2d = $Line2D
+	control.connect("direction_changed", Callable(self, "_on_direction_changed"))
+
+func update_raycast_direction(direction_index: int):
+	# Met à jour la direction en fonction de l'index actuel
+	var raycast = $RayCast2D
+	var direction = directions[direction_index]
+	raycast.target_position = direction.normalized() * laser_length
+
+@onready var ray_cast_2d: RayCast2D
+@onready var line_2d: Line2D
 
 @export var max_bounces := 100
 @export var max_distance: float = 1000.0
 @export var laser_active: bool = true
-@export var default_direction := Vector2(1, 0.2)
 
 func _physics_process(_delta: float) -> void:
 	if not laser_active:
 		return
 
 	var start_point := global_position
-	var direction := default_direction
+	var direction := ray_cast_2d.target_position
 	var current_points := [start_point]
 	
 	for i in range(max_bounces):
 		ray_cast_2d.global_position = current_points[-1]
 		var end_point = start_point + direction * max_distance
-		ray_cast_2d.target_position = to_local(end_point)
+		#ray_cast_2d.target_position = to_local(end_point)
 		ray_cast_2d.force_raycast_update()
 
 		if ray_cast_2d.is_colliding():
