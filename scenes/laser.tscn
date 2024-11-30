@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt2c7m4tqe1i6"]
+
+[ext_resource type="Script" path="res://scripts/laser.gd" id="1_2hlee"]
+[ext_resource type="Texture2D" uid="uid://c618cxedhrqsy" path="res://icon.svg" id="2_111go"]
+
+[node name="NewLaser" type="Node2D"]
+script = ExtResource("1_2hlee")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collide_with_areas = true
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(0, 1, 0, 1)
+joint_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_111go")
