@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d1nl4d7gdo2y"]
+
+[ext_resource type="FontFile" uid="uid://drhcl3md1kjul" path="res://assets/fonts/LASER4.TTF" id="1_1gv1d"]
+
+[resource]
+default_font = ExtResource("1_1gv1d")

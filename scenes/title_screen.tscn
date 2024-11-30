@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmsvt1iwslelb"]
+
+[ext_resource type="FontFile" uid="uid://drhcl3md1kjul" path="res://assets/fonts/LASER4.TTF" id="1_pok7o"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="2_fp4yg"]
+[ext_resource type="Texture2D" uid="uid://4sqltq3iuj8u" path="res://assets/Background.jpg" id="3_6fk2x"]
+[ext_resource type="Script" path="res://scripts/exit_button.gd" id="4_86akp"]
+[ext_resource type="Script" path="res://scripts/start_button.gd" id="4_rhjeo"]
+
+[sub_resource type="Theme" id="Theme_vqce5"]
+default_font = ExtResource("1_pok7o")
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vqce5")
+script = ExtResource("2_fp4yg")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6fk2x")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = 172.5
+offset_right = 55.5
+offset_bottom = 195.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+flat = true
+script = ExtResource("4_rhjeo")
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = 226.5
+offset_right = 39.0
+offset_bottom = 249.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+flat = true
+script = ExtResource("4_86akp")
+
+[node name="Node" type="Node" parent="."]
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
